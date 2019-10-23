@@ -1,0 +1,18 @@
+1 - > Create Model Folder
+    -> Created a Class Value added 2 propersties prop( ID and Name)
+2->Created Data Folder
+    ->Created Data Context Class
+    -> Constructor Derived from DbContext as base class passing in the options to the base(parent) class
+    ->Hooking up DbSet iwth Value
+
+3-> In Startup Cs 
+ services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+ Configuration comes from appsettings Json provinding DefaultString for Database Name
+
+4-> Creating Migrations 
+    Coomand :dotnet ef migrations add InitialCreate -> CreatesData Base Schema
+
+5-> Creating DataBase
+    Command : dotnet ef database update 
+    -Creates data Base with DattingApp.db name as provided in Confugurations
+    
